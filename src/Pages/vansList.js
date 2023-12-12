@@ -11,15 +11,15 @@ function VansList() {
         .then(data=>updateVans(data.vans))
     }, [])
 
-    const vansElement = vans.map(van=> <Link to={`${van.id}`}><VanItem key={van.id} van={van} ></VanItem></Link>)
+    const vansElement = vans.map (van=> <Link to={`${van.id}`}><VanItem key={van.id} van={van} ></VanItem></Link>)
 
   return (
     <div className='van-list-container'>
-        <h1>Explore Our Vans</h1>
+        <h1>Explore Our Vans </h1>
         <div className='van-list'>
             {vansElement}
         </div>        
-        </div>
+    </div>
   )
 }
 
