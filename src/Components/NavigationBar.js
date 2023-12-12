@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, Outlet } from 'react-router-dom'
+import { Link, NavLink, Outlet } from 'react-router-dom'
 
 function NavigationBar() {
   return (
@@ -7,11 +7,11 @@ function NavigationBar() {
             <div>
               <header>
                 <nav>
-                  <h1><Link to={'/'} className='site-logo'> #VanLife</Link></h1>
+                  <h1><NavLink to={'/'} className='site-logo'> #VanLife</NavLink></h1>
                   <ul>
-                    <li><Link to={'/about'}>About</Link></li>
-                    <li><Link to={'/vans'}>Vans</Link></li>
-                    <li><Link to={'/host'}>Host</Link></li>
+                    <li><NavLink className={({isActive})=> isActive ? `isActive` : ''} to={'/about'}>About</NavLink></li>
+                    <li><NavLink className={({isActive})=> isActive ? `isActive` : ''} to={'/vans'}>Vans</NavLink></li>
+                    <li><NavLink className={({isActive})=> isActive ? `isActive` : ''} to={'/host'}>Host</NavLink></li>
                   </ul>
                 </nav>
               </header>

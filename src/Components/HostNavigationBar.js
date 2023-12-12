@@ -1,14 +1,14 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 function HostNavigationBar() {
   return (
     <div>
       <nav>
         <ul>
-            <li><Link to='.'>Dashboard</Link></li>
-            <li><Link to='income'>Income</Link></li>
-            <li><Link to='review'>Reviews</Link></li>
+            <li><NavLink end className={({isActive})=> isActive ? `isActive` : ''} to='.'>Dashboard</NavLink></li>
+            <li><NavLink className={({isActive})=> isActive ? `isActive` : ''} to='income'>Income</NavLink></li>
+            <li><NavLink className={({isActive})=> isActive ? `isActive` : ''} to='review'>Reviews</NavLink></li>
         </ul>
       </nav>
     </div>
