@@ -11,6 +11,7 @@ import HostLayout from './Components/HostLayout';
 import HostDashboard from './Pages/HostDashboard';
 import Income from './Pages/Income'
 import Review from './Pages/Review'
+import HostVans from './Pages/HostVans';
 
 function App (){
   return (
@@ -25,6 +26,7 @@ function App (){
             <Route path='host' element={<HostLayout/>}>
               <Route index element={<HostDashboard/>}/>
               <Route path='review' element={<Review/>}/>
+              <Route path='vans' element={<HostVans/>}/>
               <Route path='income' element={<Income/>}/>
             </Route>
           </Route>                    
