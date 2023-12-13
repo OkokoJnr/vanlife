@@ -9,6 +9,7 @@ function HostVans() {
     .then(response => response.json())
     .then(data => updateHostVans(data.vans))
   })
+  
   const hostVanElement = hostVans.map((hostVan)=> <Link to={`${hostVan.id}`}><HostVanItem van={hostVan}/></Link>)
   return (
     <div>
@@ -17,6 +18,7 @@ function HostVans() {
     </div>
   )
 }
+
 
 function HostVanItem({van}){
   return (<>
@@ -29,5 +31,6 @@ function HostVanItem({van}){
         </div> 
   </>)
 }
+
 
 export default HostVans
