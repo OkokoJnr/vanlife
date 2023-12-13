@@ -22,18 +22,18 @@ function VansList() {
   return (
     <div className='van-list-container'>
 
-        {/* <div>
+        <div>
             <Link to={'?type=simple'} className='van-type simple'>Simple</Link>
             <Link to={'?type=rugged'} className='van-type rugged'>Rugged</Link>
             <Link to={'?type=luxury'} className='van-type luxury'>Luxury</Link>
             <Link to={'.'} className='van-type clear-filters'>Clear</Link>
-        </div> */}
-        <div>
+        </div>
+        {/* <div>
             <button onClick={()=>setSearchParams({type:'simple'})} className='van-type simple'>Simple</button>
             <button onClick={()=>setSearchParams({type:'rugged'})} className='van-type rugged'>Rugged</button>
             <button onClick={()=>setSearchParams({type:'luxury'})} className='van-type luxury'>Luxury</button>
             <button onClick={()=>setSearchParams({type:'luxury'})} className='van-type clear-filters'>Clear</button>
-        </div>
+        </div> */}
 
         <h1>Explore Our Vans </h1>
         <div className='van-list'>
