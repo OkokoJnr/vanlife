@@ -38,6 +38,7 @@ function VansList() {
             return prevParams
         })
     }
+    const query = searchTerm.get('type')
   return (
     <div className='van-list-container'>
 
@@ -66,7 +67,7 @@ function VansList() {
             <button onClick={()=> handleFilterChange('type','simple') } className='van-type simple'>Simple</button>
             <button onClick={()=> handleFilterChange('type','rugged') } className='van-type rugged'>Rugged</button>
             <button onClick={()=> handleFilterChange('type','luxury') } className='van-type luxury'>Luxury</button>
-            <button onClick={()=> handleFilterChange('type',null) } className='van-type clear-filters'>Clear</button>
+            <button onClick={()=> handleFilterChange('type',null) } className='van-type clear-filters'>{}Clear {query}</button>
         </div> 
         <h1>Explore Our Vans </h1>
         <div className='van-list'>
