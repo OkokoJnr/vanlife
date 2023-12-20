@@ -6,7 +6,7 @@ function VansList() {
 
     const [vans, updateVans] = useState([])
     const [searchTerm, setSearchParams] = useSearchParams()
-
+    console.log(searchTerm)
     const filteredVans = searchTerm.get('type') ? vans.filter(van=>van.type === searchTerm.get('type')) : vans
 
     useEffect(()=>{
@@ -27,6 +27,17 @@ function VansList() {
         return `?${sp.toString()}`
     }
 
+    function handleFilterChange(key, value){
+        setSearchParams(prevParams => {
+            if(value === null){   
+                prevParams.delete(key)
+            }else{
+                prevParams.set(key, value)
+            }
+            console.log(prevParams)
+            return prevParams
+        })
+    }
   return (
     <div className='van-list-container'>
 
@@ -43,13 +54,20 @@ function VansList() {
             <button onClick={()=>setSearchParams({type:'luxury'})} className='van-type clear-filters'>Clear</button>
         </div> */}
 
-        <div>
-            <Link to={generateNewSearchParamString('type','simple')}>Simple</Link>
+
+        {/*<div>
+             <Link to={generateNewSearchParamString('type','simple')}>Simple</Link>
             <Link to={generateNewSearchParamString('type','rugged')}>Rugged</Link>
             <Link to={generateNewSearchParamString('type','luxury')}>Luxury</Link>
             <Link to={generateNewSearchParamString('type',null)}>Clear</Link>
-        </div>
+        </div> */}
 
+        <div>           
+            <button onClick={()=> handleFilterChange('type','simple') } className='van-type simple'>Simple</button>
+            <button onClick={()=> handleFilterChange('type','rugged') } className='van-type rugged'>Rugged</button>
+            <button onClick={()=> handleFilterChange('type','luxury') } className='van-type luxury'>Luxury</button>
+            <button onClick={()=> handleFilterChange('type',null) } className='van-type clear-filters'>Clear</button>
+        </div> 
         <h1>Explore Our Vans </h1>
         <div className='van-list'>
             {vansElement}
