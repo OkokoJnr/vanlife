@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router'
+import { useParams, useLocation } from 'react-router'
+import { Link } from 'react-router-dom'
 
 function VanDetail() {
     const [van, setVan] = useState(null)
     const vansId = +useParams().id
-    console.log(van)
+    const location = useLocation()
+    const searchTerm = location.state?.queryString || ''
+    const query = location.state?.query || 'All'
+
     useEffect(()=>{
         fetch(`/api/vans/${vansId}`)
         .then(response => response.json())
@@ -15,6 +19,7 @@ function VanDetail() {
 
       {
         van ? (<div className='van-detail'>
+          <Link to={`..?${searchTerm}`} relative='path'>&larr; {`Back to ${query} Vans`}</Link>
             <img src={van.imgaeUrl} alt='v'/>
             <i className={`van-type ${van.type} selected`}>{van.type}</i>
             <h2>{van.name}</h2>

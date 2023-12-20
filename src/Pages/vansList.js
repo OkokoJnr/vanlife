@@ -6,7 +6,7 @@ function VansList() {
 
     const [vans, updateVans] = useState([])
     const [searchTerm, setSearchParams] = useSearchParams()
-    console.log(searchTerm)
+    console.log(searchTerm.toString())
     const filteredVans = searchTerm.get('type') ? vans.filter(van=>van.type === searchTerm.get('type')) : vans
 
     useEffect(()=>{
@@ -15,7 +15,7 @@ function VansList() {
         .then(data=>updateVans(data.vans))
     }, [])
 
-    const vansElement = filteredVans.map (van=> <Link key={van.id} to={`${van.id}`}><VanItem  van={van} ></VanItem></Link>)
+    const vansElement = filteredVans.map (van=> <Link key={van.id} to={`${van.id}`} state={{queryString:searchTerm.toString(), query:searchTerm.get('type')}}><VanItem  van={van} ></VanItem></Link>)
 
     function generateNewSearchParamString(key, value){
         const sp = new URLSearchParams(searchTerm)
@@ -67,7 +67,7 @@ function VansList() {
             <button onClick={()=> handleFilterChange('type','simple') } className='van-type simple'>Simple</button>
             <button onClick={()=> handleFilterChange('type','rugged') } className='van-type rugged'>Rugged</button>
             <button onClick={()=> handleFilterChange('type','luxury') } className='van-type luxury'>Luxury</button>
-            <button onClick={()=> handleFilterChange('type',null) } className='van-type clear-filters'>{}Clear {query}</button>
+            <button onClick={()=> handleFilterChange('type',null) } className='van-type clear-filters'>{query ? 'Clear' :''}</button>
         </div> 
         <h1>Explore Our Vans </h1>
         <div className='van-list'>
