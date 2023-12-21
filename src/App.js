@@ -16,12 +16,15 @@ import HostVansDetail from './Pages/HostVansDetail';
 import HostVansDetailsInfo from './Pages/HostVansDetailsInfo';
 import HostVansDetailPricing from './Pages/HostVansDetailPricing';
 import HostVansDetailPhoto from './Pages/HostVansDetailPhoto';
+import NotfoundError from './Pages/NotfoundError';
+
 function App (){
   return (
     <>
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Layout/>}>
+            <Route path='*' element={<NotfoundError/>}/>
             <Route index element={<Home/>}/>
             <Route path='about' element={<About/>}/> 
             <Route path='vans' element={<VansList/>}/> 
