@@ -14,13 +14,14 @@ function VanDetail() {
         .then(response => response.json())
         .then (data=>setVan(data.vans))
     }, [])
+    console.log(van)
   return (
     <div className='van-detail-container container'>
 
       {
         van ? (<div className='van-detail'>
           <Link to={`..?${searchTerm}`} relative='path'>&larr; {`Back to ${query} Vans`}</Link>
-            <img src={van.imgaeUrl} alt='v'/>
+            <img src={van.imageUrl} alt={`image of ${van.name} van`}/>
             <i className={`van-type ${van.type} selected`}>{van.type}</i>
             <h2>{van.name}</h2>
             <p><span>${van.price}</span>/day</p>

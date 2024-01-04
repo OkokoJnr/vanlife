@@ -12,13 +12,14 @@ function HostVansDetail() {
         .then(response => response.json())
         .then(data => setHostVans(data.vans))
     },[])
+    
   return (<>
         <section>
                 <Link to={`..`} relative='path' className='back-button'>&larr; Back to all vans</Link>
             {
                 hostVans ? (<div className='host-van-detail-layout-container'>
                     <div className='host-van-detail'>
-                        <img src={hostVans.imgaeUrl} alt={hostVans.name}/>
+                        <img src={hostVans.imageUrl} alt={hostVans.name}/>
                         <div className='host-van-detail-info-text'> 
                             <i className={`van-type ${hostVans.type} selected`}>{hostVans.type}</i>
                             <h2>{hostVans.name}</h2>
