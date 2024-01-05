@@ -1,6 +1,6 @@
 
 import { Link } from "react-router-dom"
-import about from './../assets/images/training.jpg' 
+import about from './../assets/images/vanlife.jpg' 
 import './about.css'
 function About (){
 
