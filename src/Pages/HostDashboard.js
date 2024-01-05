@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react'
 
 function HostDashboard() {
 
-
   return (
-    <div>
+    <div className='host host-dashboard'>
       Host Dashboard Goes Here
     </div>
   )

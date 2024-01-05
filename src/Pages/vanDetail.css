@@ -48,3 +48,11 @@
 .van-detail .price{
     font-weight: bold;
 }
+.back-btn{
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.back-btn span{
+    font-size: 30px;
+}

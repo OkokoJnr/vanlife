@@ -6,7 +6,8 @@ function VansList() {
 
     const [vans, updateVans] = useState([])
     const [searchTerm, setSearchParams] = useSearchParams()
-    console.log(searchTerm.toString())
+    const query = searchTerm.get('type')
+    
     const filteredVans = searchTerm.get('type') ? vans.filter(van=>van.type === searchTerm.get('type')) : vans
 
     useEffect(()=>{
@@ -15,7 +16,7 @@ function VansList() {
         .then(data=>updateVans(data.vans))
     }, [])
 
-    const vansElement = filteredVans.map (van=> <div key={van.id} state={{queryString:searchTerm.toString(), query:searchTerm.get('type')}}><VanItem  van={van} ></VanItem></div>)
+    const vansElement = filteredVans.map (van=> <Link to={`${van.id}`} className='link'key={van.id} state={{queryString:searchTerm.toString(), query:searchTerm.get('type')}}><VanItem  van={van} ></VanItem> </Link>)
 
     function generateNewSearchParamString(key, value){
         const sp = new URLSearchParams(searchTerm)
@@ -38,7 +39,7 @@ function VansList() {
             return prevParams
         })
     }
-    const query = searchTerm.get('type')
+    
   return (
     <div className='van-list-container'>
 
@@ -82,7 +83,7 @@ function VansList() {
 function VanItem ({van}){
     return(
         <>
-            <Link to={`${van.id}`} className='link'>
+            
                 <div className='van-tile'>
                     <img src={van.imageUrl}/>
                     <div className='van-info'>
@@ -90,7 +91,6 @@ function VanItem ({van}){
                         <p>${van.price}<span>/day</span></p>
                     </div>
                 </div>
-            </Link>
         </>
     )
 }

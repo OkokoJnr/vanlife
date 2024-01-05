@@ -2,7 +2,7 @@ import React from 'react'
 
 function Review() {
   return (
-    <div>
+    <div className='host'>
       Welcome to the Review Dashboard
     </div>
   )
