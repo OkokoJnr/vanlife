@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
-
+import './vansList.css'
 
 function VansList() {
 
@@ -15,7 +15,7 @@ function VansList() {
         .then(data=>updateVans(data.vans))
     }, [])
 
-    const vansElement = filteredVans.map (van=> <Link key={van.id} to={`${van.id}`} state={{queryString:searchTerm.toString(), query:searchTerm.get('type')}}><VanItem  van={van} ></VanItem></Link>)
+    const vansElement = filteredVans.map (van=> <div key={van.id} state={{queryString:searchTerm.toString(), query:searchTerm.get('type')}}><VanItem  van={van} ></VanItem></div>)
 
     function generateNewSearchParamString(key, value){
         const sp = new URLSearchParams(searchTerm)
@@ -82,15 +82,15 @@ function VansList() {
 function VanItem ({van}){
     return(
         <>
-
-        <div className='van-tile'>
-            <img src={van.imageUrl}/>
-            <div className='van-info'>
-                <h3>{van.name}</h3>
-                <p>${van.price}<span>/day</span></p>
-            </div>
-            <i className={`van-type ${van.type} selected`}>{van.type}</i>
-        </div>
+            <Link to={`${van.id}`} className='link'>
+                <div className='van-tile'>
+                    <img src={van.imageUrl}/>
+                    <div className='van-info'>
+                        <h3>{van.name}</h3>
+                        <p>${van.price}<span>/day</span></p>
+                    </div>
+                </div>
+            </Link>
         </>
     )
 }
