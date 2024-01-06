@@ -25,6 +25,7 @@
     margin: 20px;
     padding: 10px;
     border-radius: 5px;
+    min-height: 300px;
 }
 
 .van-list img{

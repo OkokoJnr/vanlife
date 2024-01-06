@@ -44,3 +44,41 @@
     margin-bottom: 10px;
     text-decoration: none;
 }
+
+/* HOST VAN DETAIL INFOR STYLES */
+.host-van-detail-layout-container{
+    width: 1000px;
+    min-height: 75vh;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+}
+.host-van-detail-layout-container .host-van-detail{
+    display: flex;
+    margin: auto 0;
+    background-color: #fff;
+    align-items: center;
+}
+
+.host-van-detail-layout-container .host-van-detail img{
+    width: 300px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.host-van-detail-layout-container .host-van-detail .host-van-detail-info-text{
+    padding: 20px;
+}
+
+.host-van-detail i.van-type{
+    font-size: 22px;
+    padding: 5px;
+    border-radius: 10px;
+    width: 80px;
+    display: block;
+    border: 1px solid antiquewhite;
+    text-align: center;
+    align-items: end;
+    text-transform: capitalize;
+    margin: 0px;
+}
