@@ -97,3 +97,18 @@
     margin: 10px;
     font-size: 18px;
 }
+
+/* HOST VAN DETAIL NAVIGATION BAR STYLE */
+.host-nav-bar{
+    display: flex;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+.host-nav-bar .host-nav-bar-link{
+    margin: 0 10px;
+    text-decoration: none;
+}
+.host-nav-bar .host-nav-bar-link:first-child{
+    margin-left: 0;
+}

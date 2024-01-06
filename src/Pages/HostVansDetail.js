@@ -28,10 +28,11 @@ function HostVansDetail() {
                         </div>
                 </div>): 'Loading...'
             }
-    <nav>
-        <NavLink className={({isActive})=> isActive ? `isActive` : ''} end to={'.'}>Details</NavLink>
-        <NavLink className={({isActive})=> isActive ? `isActive` : ''} to={'photos'}>Photos</NavLink>
-        <NavLink className={({isActive})=> isActive ? `isActive` : ''} to={'pricing'}>Pricing</NavLink>
+   
+    <nav className='host-nav-bar'>
+        <span className='host-nav-bar-link'><NavLink className={({isActive})=> isActive ? `isActive` : ''} end to={'.'}>Details</NavLink></span>
+        <span className='host-nav-bar-link'><NavLink className={({isActive})=> isActive ? `isActive` : ''} to={'photos'}>Photos</NavLink></span>
+        <span className='host-nav-bar-link'><NavLink className={({isActive})=> isActive ? `isActive` : ''} to={'pricing'}>Pricing</NavLink></span>
     </nav>
     <Outlet context={{hostVans}}/>
     </div>

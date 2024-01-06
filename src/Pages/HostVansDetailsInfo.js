@@ -2,7 +2,6 @@ import React from 'react'
 import { useOutletContext } from 'react-router'
 function HostVansDetailsInfo() {
   const {hostVans} = useOutletContext()
-  console.log(hostVans)
   return  (
             <div className=' host-van-detail-info'>
                 <p><strong>Name:</strong>{hostVans.name}</p>
