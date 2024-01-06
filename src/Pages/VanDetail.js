@@ -23,7 +23,7 @@ function VanDetail() {
 
       {
         van ? (<div className='van-detail'>
-                  <Link to={`..?${searchTerm}`} className='back-btn' relative='path'><span>&larr;</span> {`Back to ${query} Vans`}</Link>
+                  <Link to={`..?${searchTerm}`} className='back-btn' relative='path'><span className='back-btn-icon'>&larr;</span> {`Back to ${query} Vans`}</Link>
                     <img src={van.imageUrl} alt={`image of ${van.name} van`}/>
                    <div className='vandetail-content'>
                       <i className={`van-type ${van.type} selected`}>{van.type}</i>

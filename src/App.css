@@ -76,6 +76,26 @@ header{
   font-weight: bolder;
 }
 
+.van-type-container{
+  display: flex;
+  padding: 0;
+  margin-bottom: 10px;
+}
 .van-type{
   margin: 0 10px;
+  border: none;
+  font-size: 22px;
+  padding: 5px;
+  display: block;
+  border-radius: 10px;
+  width: 80px;
+  text-align: center;
+  text-transform: capitalize;
+  justify-content: left;
+}
+.van-type:first-child{
+  margin-left: 0;
+}
+.clear-filters{
+  display: none;
 }

@@ -5,11 +5,13 @@
     align-items: center;
 }
 
-.host-van{
+.host-vanList-container{
     background-color: white;
+    width: 90%;
+    margin: 0 auto;
 }
 
-.host-van .host-vanList-container{
+.host-vanList-container .van-list{
     width: 90%;
     display: flex;
     flex-wrap: wrap;
@@ -21,7 +23,10 @@
     background-color: antiquewhite;
 }
 
-.host-vanList-container .host-van-tile{
+.host-vanList-container h2{
+    margin: 10px 0;
+}
+.van-list .host-van-tile{
     background-color: white;
     width: 300px;
     justify-content: space-between;
@@ -50,7 +55,7 @@
     width: 1000px;
     min-height: 75vh;
     margin: 0 auto;
-    background-color: #fff;
+    background-color: antiquewhite;
     padding: 20px;
 }
 .host-van-detail-layout-container .host-van-detail{
@@ -81,4 +86,14 @@
     align-items: end;
     text-transform: capitalize;
     margin: 0px;
+}
+
+/* STYLING HOST VAN DETAIL INFO SECTION */
+.host-van-detail-info{
+    padding: 20px;
+}
+
+.host-van-detail-info p{
+    margin: 10px;
+    font-size: 18px;
 }

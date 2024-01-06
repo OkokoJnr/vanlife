@@ -64,11 +64,11 @@ function VansList() {
             <Link to={generateNewSearchParamString('type',null)}>Clear</Link>
         </div> */}
 
-        <div>           
+        <div className='van-type-container'>           
             <button onClick={()=> handleFilterChange('type','simple') } className='van-type simple'>Simple</button>
             <button onClick={()=> handleFilterChange('type','rugged') } className='van-type rugged'>Rugged</button>
             <button onClick={()=> handleFilterChange('type','luxury') } className='van-type luxury'>Luxury</button>
-            <button onClick={()=> handleFilterChange('type',null) } className='van-type clear-filters'>{query ? 'Clear' :''}</button>
+            <button onClick={()=> handleFilterChange('type',null) } className={`${query ? 'van-type':'clear-filters'} clear-filters-btn`}>{query ? 'Clear' :''}</button>
         </div> 
         <h1>Explore Our Vans </h1>
         <div className='van-list'>
