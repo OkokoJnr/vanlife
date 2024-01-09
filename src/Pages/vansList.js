@@ -1,20 +1,41 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useSearchParams } from 'react-router-dom'
+import { Link, useLoaderData, useSearchParams } from 'react-router-dom'
 import './vansList.css'
+import { getVans } from '../api'
+
 
 function VansList() {
-
     const [vans, updateVans] = useState([])
     const [searchTerm, setSearchParams] = useSearchParams()
+    const [error, setError] = useState(null)
+    const [loading, setLoading] = useState(false)
+    useEffect(()=>{
+        async function loadvans(){
+            setLoading(true)
+            try{
+                const data = await getVans()
+                updateVans(data)
+            }catch(err){
+                console.log('An Error Occured: ', err.message)
+                console.log(err)
+                setError(err)
+            }finally{
+                console.log('loading is false')
+                setLoading(false)   
+            }
+        }
+        loadvans()
+    }, [])
+
+    if(loading){
+        return <h1>Loading.....</h1>
+    }
+    if(error){
+        return <h1>An Error occured</h1>
+    }
     const query = searchTerm.get('type')
     
     const filteredVans = searchTerm.get('type') ? vans.filter(van=>van.type === searchTerm.get('type')) : vans
-
-    useEffect(()=>{
-        fetch('/api/vans')
-        .then(response=>response.json())
-        .then(data=>updateVans(data.vans))
-    }, [])
 
     const vansElement = filteredVans.map (van=> <Link to={`${van.id}`} className='link'key={van.id} state={{queryString:searchTerm.toString(), query:searchTerm.get('type')}}><VanItem  van={van} ></VanItem> </Link>)
 
@@ -85,7 +106,7 @@ function VanItem ({van}){
         <>
             
                 <div className='van-tile'>
-                    <img src={van.imageUrl}/>
+                    <img src={van.imageUrl} alt={van.name}/>
                     <div className='van-info'>
                         <h3>{van.name}</h3>
                         <p>${van.price}<span>/day</span></p>

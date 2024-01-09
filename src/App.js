@@ -1,6 +1,6 @@
 import React from 'react'
 import './App.css'
-import  {BrowserRouter, Routes, Route } from 'react-router-dom';
+import  {BrowserRouter, Routes, Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom';
 import './server'
 import Home from './Pages/Home';
 import About from './Pages/About';
@@ -18,12 +18,11 @@ import HostVansDetailPricing from './Pages/HostVansDetailPricing';
 import HostVansDetailPhoto from './Pages/HostVansDetailPhoto';
 import NotfoundError from './Pages/NotfoundError';
 
+
 function App (){
-  return (
-    <>
-      <BrowserRouter>
-        <Routes>
-          <Route path='/' element={<Layout/>}>
+
+  const router = createBrowserRouter(createRoutesFromElements(
+    <Route path='/' element={<Layout/>}>
             <Route path='*' element={<NotfoundError/>}/>
             <Route index element={<Home/>}/>
             <Route path='about' element={<About/>}/> 
@@ -40,9 +39,12 @@ function App (){
                 <Route path='photos' element={<HostVansDetailPhoto/>}/>
               </Route>
             </Route>
-          </Route>                    
-        </Routes>
-      </BrowserRouter>
+          </Route>
+  ))
+
+  return (
+    <>
+    <RouterProvider router={router}/>
     </>
   )
 }
