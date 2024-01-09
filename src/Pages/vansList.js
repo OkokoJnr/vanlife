@@ -3,36 +3,14 @@ import { Link, useLoaderData, useSearchParams } from 'react-router-dom'
 import './vansList.css'
 import { getVans } from '../api'
 
-
+export function loader(){
+    return getVans()
+  }
+  
 function VansList() {
-    const [vans, updateVans] = useState([])
+    const vans = useLoaderData()
     const [searchTerm, setSearchParams] = useSearchParams()
-    const [error, setError] = useState(null)
-    const [loading, setLoading] = useState(false)
-    useEffect(()=>{
-        async function loadvans(){
-            setLoading(true)
-            try{
-                const data = await getVans()
-                updateVans(data)
-            }catch(err){
-                console.log('An Error Occured: ', err.message)
-                console.log(err)
-                setError(err)
-            }finally{
-                console.log('loading is false')
-                setLoading(false)   
-            }
-        }
-        loadvans()
-    }, [])
 
-    if(loading){
-        return <h1>Loading.....</h1>
-    }
-    if(error){
-        return <h1>An Error occured</h1>
-    }
     const query = searchTerm.get('type')
     
     const filteredVans = searchTerm.get('type') ? vans.filter(van=>van.type === searchTerm.get('type')) : vans

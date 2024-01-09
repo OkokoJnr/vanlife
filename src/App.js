@@ -4,7 +4,7 @@ import  {BrowserRouter, Routes, Route, createBrowserRouter, createRoutesFromElem
 import './server'
 import Home from './Pages/Home';
 import About from './Pages/About';
-import VansList from './Pages/vansList';
+import VansList, {loader, loader as vanListLoader} from './Pages/vansList';
 import VanDetail from './Pages/VanDetail';
 import Layout from './Components/Layout';
 import HostLayout from './Components/HostLayout';
@@ -26,7 +26,7 @@ function App (){
             <Route path='*' element={<NotfoundError/>}/>
             <Route index element={<Home/>}/>
             <Route path='about' element={<About/>}/> 
-            <Route path='vans' element={<VansList/>}/> 
+            <Route path='vans' element={<VansList/>} loader={vanListLoader}/> 
             <Route path='vans/:id' element={<VanDetail/>}/> 
             <Route path='host' element={<HostLayout/>}>
               <Route index element={<HostDashboard/>}/>
