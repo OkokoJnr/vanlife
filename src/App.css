@@ -99,3 +99,7 @@ header{
 .clear-filters{
   display: none;
 }
+
+.error-container{
+  min-height: 80vh;
+}

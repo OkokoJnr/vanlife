@@ -17,6 +17,7 @@ import HostVansDetailsInfo from './Pages/HostVansDetailsInfo';
 import HostVansDetailPricing from './Pages/HostVansDetailPricing';
 import HostVansDetailPhoto from './Pages/HostVansDetailPhoto';
 import NotfoundError from './Pages/NotfoundError';
+import ErrorElement from './Pages/ErrorElement';
 
 
 function App (){
@@ -26,7 +27,7 @@ function App (){
             <Route path='*' element={<NotfoundError/>}/>
             <Route index element={<Home/>}/>
             <Route path='about' element={<About/>}/> 
-            <Route path='vans' element={<VansList/>} loader={vanListLoader}/> 
+            <Route path='vans' element={<VansList/>} loader={vanListLoader} errorElement={<ErrorElement/>}/> 
             <Route path='vans/:id' element={<VanDetail/>}/> 
             <Route path='host' element={<HostLayout/>}>
               <Route index element={<HostDashboard/>}/>
