@@ -1,5 +1,6 @@
-export const getVans = async ()=>{
-        const res = await fetch('/api/vans')
+export const getVans = async (id)=>{
+    const url = id ? `/api/vans/${id}` : 'api/vans'
+        const res = await fetch(url)
         if(!res.ok){
             throw {
                 message:'Failed to fetch vans',
