@@ -18,12 +18,13 @@ import HostVansDetailPricing from './Pages/HostVansDetailPricing';
 import HostVansDetailPhoto from './Pages/HostVansDetailPhoto';
 import NotfoundError from './Pages/NotfoundError';
 import ErrorElement from './Pages/ErrorElement';
-
+import Login from './Pages/Login';
 
 function App (){
 
   const router = createBrowserRouter(createRoutesFromElements(
     <Route path='/' element={<Layout/>}>
+            <Route path='login' element={<Login/>}/>
             <Route path='*' element={<NotfoundError/>}/>
             <Route index element={<Home/>}/>
             <Route path='about' element={<About/>}/> 
