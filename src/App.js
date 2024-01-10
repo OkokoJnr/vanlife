@@ -44,11 +44,35 @@ function App (){
           </Route>
   ))
 
-  return (
-    <>
-    <RouterProvider router={router}/>
-    </>
-  )
+  // return (
+  //   <>
+  //   <RouterProvider router={router}/>
+  //   </>
+  // )
+
+  return (<BrowserRouter>
+    <Routes>
+    <Route path='/' element={<Layout/>}>
+            <Route path='login' element={<Login/>}/>
+            <Route path='*' element={<NotfoundError/>}/>
+            <Route index element={<Home/>}/>
+            <Route path='about' element={<About/>}/> 
+            <Route path='vans' element={<VansList/>} loader={vanListLoader} errorElement={<ErrorElement/>}/> 
+            <Route path='vans/:id' element={<VanDetail/>}/> 
+            <Route path='host' element={<HostLayout/>}>
+              <Route index element={<HostDashboard/>}/>
+              <Route path='review' element={<Review/>}/>
+              <Route path='income' element={<Income/>}/>
+              <Route path='vans' element={<HostVans/>}/>
+              <Route path='vans/:id' element={<HostVansDetail/>}>
+                <Route index element={<HostVansDetailsInfo/>}/>
+                <Route path='pricing' element={<HostVansDetailPricing/>}/>
+                <Route path='photos' element={<HostVansDetailPhoto/>}/>
+              </Route>
+            </Route>
+          </Route>
+    </Routes>
+  </BrowserRouter>)
 }
 
 
